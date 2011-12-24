@@ -5,3 +5,7 @@ desc "Run specs."
 RSpec::Core::RakeTask.new
 
 task :default => :spec
+
+task :console do
+  sh "irb -rubygems -I lib -r sugar_daddy.rb"
+end
