@@ -4,6 +4,7 @@ require 'active_support/all'
 module SugarDaddy
 
   autoload :ModelAdapters, 'sugar_daddy/model_adapters'
+  autoload :Random,        'sugar_daddy/random'
 
   mattr_accessor :access_token_model, :authorization_code_model, :client_model, :refresh_token_model
 

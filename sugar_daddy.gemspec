@@ -19,10 +19,15 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency 'rack-oauth2', '~> 0.11.0'
-  s.add_dependency 'active_support'
+  s.add_dependency 'activesupport', '~> 3.1.0'
+
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rack-test'
+  s.add_development_dependency 'activerecord'
+  s.add_development_dependency 'sqlite3-ruby'
+  s.add_development_dependency 'mongoid', "~> 2.3"
+  s.add_development_dependency 'bson_ext', "~> 1.4"
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
