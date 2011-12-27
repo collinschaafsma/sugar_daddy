@@ -57,9 +57,11 @@ describe SugarDaddy.client_class do
 
   describe "#associations" do
 
-    subject { SugarDaddy.client_class }
+    subject { SugarDaddy.client_class.new }
 
-    specify { should respond_to(:access_tokens) }
+    it { should respond_to(:access_tokens) }
+    it { should respond_to(:refresh_tokens) }
+    it { should respond_to(:authorization_codes) }
 
   end
 
