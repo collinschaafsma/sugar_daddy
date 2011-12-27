@@ -4,8 +4,12 @@ module SugarDaddy::ModelAdapters::Base::Models::Client
 
   included do
 
-    validates :secret, :presence => true
-    validates :name, :presence => true, :uniqueness => true
+    has_many :access_tokens,       :class_name => SugarDaddy.access_token_class_name, :foreign_key => :client_id
+    has_many :refresh_tokens,      :class_name => SugarDaddy.refresh_token_class_name, :foreign_key => :client_id
+    has_many :authorization_codes, :class_name => SugarDaddy.authorization_code_class_name, :foreign_key => :client_id
+
+    validates :secret,           :presence => true
+    validates :name,             :presence => true, :uniqueness => true
     validates :oauth_identifier, :presence => true, :uniqueness => true
 
     attr_accessible :name, :website, :redirect_uri

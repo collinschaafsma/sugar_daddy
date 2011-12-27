@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe SugarDaddy.client_model do
+describe SugarDaddy.client_class do
 
   describe "#validations" do
 
     before(:all) do
-      @client = SugarDaddy.client_model.create!( :name => 'Quick Left' )
+      @client = SugarDaddy.client_class.create!( :name => 'Quick Left' )
     end
 
     subject { @client }
@@ -30,13 +30,13 @@ describe SugarDaddy.client_model do
     end
 
     it "should be invalid with a duplicate name" do
-      dup = SugarDaddy.client_model.create!( :name => 'Slow Right' )
+      dup = SugarDaddy.client_class.create!( :name => 'Slow Right' )
       subject.name = dup.name
       should_not be_valid
     end
 
     it "should be invalid with a duplicate oauth_identity" do
-      dup = SugarDaddy.client_model.create!( :name => 'Slow Right 2' )
+      dup = SugarDaddy.client_class.create!( :name => 'Slow Right 2' )
       subject.oauth_identifier = dup.identifier
       should_not be_valid
     end
@@ -45,7 +45,7 @@ describe SugarDaddy.client_model do
 
   describe "#attr_accessible" do
 
-    subject { SugarDaddy.client_model }
+    subject { SugarDaddy.client_class }
 
     specify { allow_mass_assignment_of( subject, :name ).should be_true }
     specify { allow_mass_assignment_of( subject, :website ).should be_true }

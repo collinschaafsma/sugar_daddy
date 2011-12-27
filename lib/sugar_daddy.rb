@@ -6,7 +6,8 @@ module SugarDaddy
   autoload :ModelAdapters, 'sugar_daddy/model_adapters'
   autoload :Random,        'sugar_daddy/random'
 
-  mattr_accessor :access_token_model, :authorization_code_model, :client_model, :refresh_token_model
+  mattr_accessor :access_token_class, :authorization_code_class, :client_class, :refresh_token_class
+  mattr_accessor :access_token_class_name, :authorization_code_class_name, :client_class_name, :refresh_token_class_name
 
   class Configuration
 
