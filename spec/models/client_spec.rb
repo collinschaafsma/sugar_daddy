@@ -55,4 +55,12 @@ describe SugarDaddy.client_class do
 
   end
 
+  describe "#associations" do
+
+    subject { SugarDaddy.client_class }
+
+    specify { should respond_to(:access_tokens) }
+
+  end
+
 end
