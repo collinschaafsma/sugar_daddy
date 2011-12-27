@@ -5,6 +5,7 @@ class SugarDaddy::ModelAdapters::Mongoid::Models::Client
     extend ActiveSupport::Concern
 
     included do
+
       include ::Mongoid::Document
       include SugarDaddy::ModelAdapters::Base::Models::Client
 
