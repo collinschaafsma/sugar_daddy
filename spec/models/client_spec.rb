@@ -43,4 +43,16 @@ describe SugarDaddy.client_model do
 
   end
 
+  describe "#attr_accessible" do
+
+    subject { SugarDaddy.client_model }
+
+    specify { allow_mass_assignment_of( subject, :name ).should be_true }
+    specify { allow_mass_assignment_of( subject, :website ).should be_true }
+    specify { allow_mass_assignment_of( subject, :redirect_uri ).should be_true }
+    specify { allow_mass_assignment_of( subject, :secret ).should_not be_true }
+    specify { allow_mass_assignment_of( subject, :oauth_identity ).should_not be_true }
+
+  end
+
 end
