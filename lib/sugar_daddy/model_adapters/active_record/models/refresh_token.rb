@@ -5,6 +5,8 @@ class SugarDaddy::ModelAdapters::ActiveRecord::Models::RefreshToken < ActiveReco
     extend ActiveSupport::Concern
 
     included do
+
+      include SugarDaddy::ModelAdapters::Base::Models::ExpirableToken
       include SugarDaddy::ModelAdapters::Base::Models::RefreshToken
 
     end

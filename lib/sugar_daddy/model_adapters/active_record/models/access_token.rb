@@ -1,16 +1,18 @@
 class SugarDaddy::ModelAdapters::ActiveRecord::Models::AccessToken < ActiveRecord::Base
 
-  module Behaviour
+  module Mannerisms
 
     extend ActiveSupport::Concern
 
     included do
+
+      include SugarDaddy::ModelAdapters::Base::Models::ExpirableToken
       include SugarDaddy::ModelAdapters::Base::Models::AccessToken
 
     end
 
   end
 
-  include Behaviour
+  include Mannerisms
 
 end

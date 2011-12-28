@@ -5,6 +5,7 @@ class SugarDaddy::ModelAdapters::ActiveRecord::Models::Client < ActiveRecord::Ba
     extend ActiveSupport::Concern
 
     included do
+
       include SugarDaddy::ModelAdapters::Base::Models::Client
 
     end
