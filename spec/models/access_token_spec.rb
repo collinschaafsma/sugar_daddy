@@ -23,6 +23,32 @@ describe SugarDaddy.access_token_class do
       access_token.expires_at.to_i.should == expires_at.to_i
     end
 
+    context "with a refresh_token" do
+
+      before(:all) do
+        @expires_at_late = 45.days.from_now
+        @expires_at_early = 5.days.from_now
+        @refresh_token = SugarDaddy.refresh_token_class.create!( :expires_at => @expires_at_early, :client => @client )
+        @access_token = SugarDaddy.access_token_class.create!( :expires_at => @expires_at_late, :client => @client,
+                                                            :refresh_token => @refresh_token )
+      end
+
+      it "should use refresh_token expires_at if earlier than access_token expires_at" do
+        @access_token.expires_at.to_i.should == @expires_at_early.to_i
+      end
+
+      it "should use access_token expires_at if earlier than refresh_token expires_at" do
+        @refresh_token.expires_at = @expires_at_late
+        @refresh_token.save!
+
+        @access_token.expires_at = @expires_at_early
+        @access_token.save!
+
+        @access_token.expires_at.to_i.should == @expires_at_early.to_i
+      end
+
+    end
+
     it "expire! method should expire the token" do
       subject.expire!
       subject.expired?.should == true
