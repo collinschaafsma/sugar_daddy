@@ -96,6 +96,5 @@ describe SugarDaddy.access_token_class do
 
   end
 
-
 end
 
