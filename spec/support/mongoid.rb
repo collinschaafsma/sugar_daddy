@@ -7,6 +7,8 @@ end
 Mongoid.configure do |config|
   name = "sugar_daddy_test"
   host = "127.0.0.1"
+  config.use_utc = false
+  config.use_activesupport_time_zone = true
   config.master = Mongo::Connection.new.db(name)
 end
 

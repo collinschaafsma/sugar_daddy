@@ -11,12 +11,13 @@ module SugarDaddy
 
   class Configuration
 
-    attr_accessor :backend, :resource_owner_model
+    attr_accessor :backend, :resource_owner_model, :token_lifetime
 
     def initialize
       # Defualt the backend to ActiveRecord
       self.backend = :activerecord
       self.resource_owner_model = User if defined?(User)
+      self.token_lifetime = 30.days
     end
 
   end

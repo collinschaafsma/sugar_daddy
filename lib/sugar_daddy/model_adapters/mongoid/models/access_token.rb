@@ -7,10 +7,11 @@ class SugarDaddy::ModelAdapters::Mongoid::Models::AccessToken
     included do
 
       include ::Mongoid::Document
+      include SugarDaddy::ModelAdapters::Base::Models::ExpirableToken
       include SugarDaddy::ModelAdapters::Base::Models::AccessToken
 
       field :token
-      field :expires_at, type: DateTime
+      field :expires_at, type: Time
 
     end
 
