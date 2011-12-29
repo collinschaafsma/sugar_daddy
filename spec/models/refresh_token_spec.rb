@@ -4,7 +4,7 @@ describe SugarDaddy.refresh_token_class do
 
   before(:all) do
     @client = SugarDaddy.client_class.create!( :name => 'Slow Right, LLC' )
-    @refresh_token = SugarDaddy.access_token_class.create!( :client => @client )
+    @refresh_token = SugarDaddy.refresh_token_class.create!( :client => @client )
   end
 
   describe "#expiration" do

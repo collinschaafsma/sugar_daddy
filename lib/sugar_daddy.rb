@@ -11,7 +11,8 @@ module SugarDaddy
 
   class Configuration
 
-    attr_accessor :backend, :resource_owner_model, :token_lifetime, :collection_prefix, :table_prefix
+    attr_accessor :backend, :resource_owner_model, :token_lifetime, :collection_prefix, :table_prefix,
+      :access_token_lifetime, :authorization_code_lifetime, :refresh_token_lifetime
 
     alias_attribute :collection_prefix, :table_prefix
 
@@ -19,7 +20,9 @@ module SugarDaddy
       # Defualt the backend to ActiveRecord
       self.backend = :activerecord
       self.resource_owner_model = User if defined?(User)
-      self.token_lifetime = 30.days
+      self.access_token_lifetime = 15.minute
+      self.authorization_code_lifetime = 1.minute
+      self.refresh_token_lifetime = 30.days
       self.collection_prefix = 'oauth'
     end
 

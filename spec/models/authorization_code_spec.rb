@@ -14,7 +14,7 @@ describe SugarDaddy.authorization_code_class do
     specify { subject.expired?.should == false }
 
     it "should default to 30 days" do
-      subject.expires_at.strftime("%m-%d-%Y").should == 30.days.from_now.strftime("%m-%d-%Y")
+      subject.expires_at.strftime("%m-%d-%Y").should == 1.minute.from_now.strftime("%m-%d-%Y")
     end
 
     it "should be settable" do

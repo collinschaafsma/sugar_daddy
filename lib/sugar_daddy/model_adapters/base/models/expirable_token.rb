@@ -8,8 +8,9 @@ module SugarDaddy::ModelAdapters::Base::Models::ExpirableToken
     validates :token, :presence => true, :uniqueness => true
 
     after_initialize(:on => :create) do
+      token_lifetime = self.class.name.to_s.split("::").last.underscore + "_lifetime"
       self.token      = SugarDaddy::Random.token unless attribute_present?("token")
-      self.expires_at = SugarDaddy.config.token_lifetime.from_now unless attribute_present?("expires_at")
+      self.expires_at = SugarDaddy.config.method(token_lifetime).call.from_now unless attribute_present?("expires_at")
     end
 
     def expires_in
