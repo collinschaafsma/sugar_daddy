@@ -4,3 +4,4 @@ Gemfile.lock
 pkg/*
 vendor/
 coverage/
+spec/support/db/sugar_daddy_test.sqlite3

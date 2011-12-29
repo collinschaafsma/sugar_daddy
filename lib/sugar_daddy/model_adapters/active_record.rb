@@ -14,11 +14,11 @@ module SugarDaddy::ModelAdapters::ActiveRecord
     SugarDaddy.client_class             = SugarDaddy::ModelAdapters::ActiveRecord::Models::Client
     SugarDaddy.refresh_token_class      = SugarDaddy::ModelAdapters::ActiveRecord::Models::RefreshToken
 
-    prefix = SugarDaddy.config.table_prefix
-    SugarDaddy.access_token_class.set_table_name       = prefix + "_access_tokens"
-    SugarDaddy.authorization_code_class.set_table_name = prefix + "_authorization_codes"
-    SugarDaddy.refresh_token_class.set_table_name      = prefix + "_refresh_tokens"
-    SugarDaddy.client_class.set_table_name             = prefix + "_clients"
+    prefix = "#{SugarDaddy.config.table_prefix}_"
+    SugarDaddy.access_token_class.table_name_prefix       = prefix
+    SugarDaddy.authorization_code_class.table_name_prefix = prefix
+    SugarDaddy.refresh_token_class.table_name_prefix      = prefix
+    SugarDaddy.client_class.table_name_prefix             = prefix
 
     true
   end

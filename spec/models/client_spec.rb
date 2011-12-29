@@ -37,7 +37,7 @@ describe SugarDaddy.client_class do
 
     it "should be invalid with a duplicate oauth_identity" do
       dup = SugarDaddy.client_class.create!( :name => 'Slow Right 2' )
-      subject.oauth_identifier = dup.identifier
+      subject.oauth_identifier = dup.oauth_identifier
       should_not be_valid
     end
 

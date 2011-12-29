@@ -24,8 +24,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rack-test'
-  s.add_development_dependency 'activerecord'
-  s.add_development_dependency 'sqlite3-ruby'
+  s.add_development_dependency 'activerecord', "~> 3.1.0"
+  s.add_development_dependency "sqlite3", "~> 1.3.5"
   s.add_development_dependency 'mongoid', "~> 2.3"
   s.add_development_dependency 'bson_ext', "~> 1.4"
 
